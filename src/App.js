@@ -1,9 +1,11 @@
 import * as React from "react";
 import jsonServerProvider from 'ra-data-json-server';
 import { Admin, Resource } from 'react-admin';
-import { UserList } from './users';
+import { UserList } from './Registrationdetails';
 import { createMuiTheme } from '@material-ui/core/styles';
-import Dashboard from './Dashboard';
+import StudentList from './StudentList';
+import EvaluationList from './EvaluationList';
+import { Users1List } from './Evaluationdetails';
 
 const theme = createMuiTheme({
   overrides: {
@@ -46,9 +48,9 @@ const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
 const App = () => (
   
-     <Admin dashboard={Dashboard} theme={theme} dataProvider={dataProvider}>
-     
-       <Resource name="users" show={UserList} />
+     <Admin dashboard={StudentList} theme={theme} dataProvider={dataProvider}> 
+       <Resource name="users" list={StudentList} show={UserList} />
+       <Resource name="users1" list={EvaluationList} show={Users1List} />
 
    </Admin>
   );
