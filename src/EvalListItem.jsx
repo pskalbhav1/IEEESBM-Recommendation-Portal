@@ -14,7 +14,7 @@ export default function EvalListItem({
   elec_ans_marks,
 }) {
   const styles = { backgroundColor: "#333", color: "#fefefe" };
-
+  
   return (
     <div
       style={reasoning_marks && elec_ans_marks && cs_ans_marks ? styles : null}
@@ -37,7 +37,7 @@ export default function EvalListItem({
       </span>
 
       <button className="students__item-btn">
-      <Link to={`/users/${id}/show`}>View</Link>
+      <Link to={`/users1/${id}/show`}>View</Link>
       </button>
     </div>
   );

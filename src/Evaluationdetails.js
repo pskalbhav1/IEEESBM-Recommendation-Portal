@@ -1,9 +1,9 @@
 import * as React from "react";
-import { Show, SimpleShowLayout, TextField,UrlField } from 'react-admin';
+import { Show, SimpleForm, TextField,UrlField } from 'react-admin';
 
 export const Users1List = props => (
     <Show {...props}>
-        <SimpleShowLayout rowClick="show">
+        <SimpleForm rowClick="show">
             <TextField source="id" />
             <TextField source="student" />
             <UrlField source="reasoning_ans_link" />
@@ -13,6 +13,6 @@ export const Users1List = props => (
             <UrlField source="elec_ans_link" />
             <TextField source="elec_ans_marks" />
             <TextField source="set_no" />
-        </SimpleShowLayout>
+        </SimpleForm>
     </Show>
 );
