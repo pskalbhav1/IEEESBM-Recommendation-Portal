@@ -1,70 +1,86 @@
 import * as React from "react";
-import jsonServerProvider from 'ra-data-json-server';
-import { Admin, Resource } from 'react-admin';
-import { UserList } from './Registrationdetails';
-import { createMuiTheme } from '@material-ui/core/styles';
-import StudentList from './StudentList';
-import EvaluationList from './EvaluationList';
-import { Users1List } from './Evaluationdetails';
-import App from './App';
-import Profile from './Profile.js';
+import jsonServerProvider from "ra-data-json-server";
+import { Admin, Resource } from "react-admin";
+import { UserList } from "./Registrationdetails";
+import { createMuiTheme } from "@material-ui/core/styles";
+import StudentList from "./StudentList";
+import EvaluationList from "./EvaluationList";
+import { Users1List } from "./Evaluationdetails";
+import App from "./App";
+import Profile from "./Profile.js";
 
-import {
-  Link, HashRouter
-} from 'react-router-dom';
+import { Link, HashRouter } from "react-router-dom";
 
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       text: {
-        color: 'black',
+        color: "black",
       },
     },
   },
   typography: {
     fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
+      "-apple-system",
+      "BlinkMacSystemFont",
       '"Segoe UI"',
-      'Roboto',
+      "Roboto",
       '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
+      "Arial",
+      "sans-serif",
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
-    ].join(','),
+    ].join(","),
   },
-    palette: {
-
+  palette: {
     primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
-      contrastText: '#fff',
+      light: "#757ce8",
+      main: "#3f50b5",
+      dark: "#002884",
+      contrastText: "#fff",
     },
     secondary: {
-      main: '#0D0D0D',
+      main: "#0D0D0D",
     },
   },
 });
 
-
-const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
 const Main = () => (
   <div>
     <HashRouter>
-      <Link to={`/users`}>Registration List</Link><br></br>
-      <Link to={`/posts`}>Evaluation List</Link>
+      <div className="button-container">
+        <Link className="link" to={`/users`}>
+          Registration List
+        </Link>
+        <br></br>
+        <Link className="link" to={`/posts`}>
+          Evaluation List
+        </Link>
+      </div>
     </HashRouter>
-    <Admin dashboard={Profile} logoutButton={App} theme={theme} dataProvider={dataProvider}> 
-  
-      <Resource name="users" options={{ label: 'Registration List' }} list={StudentList} show={UserList}/>
-      <Resource name="posts" options={{ label: 'Evaluation List' }} list={EvaluationList} show={Users1List} />
-
+    <Admin
+      dashboard={Profile}
+      logoutButton={App}
+      theme={theme}
+      dataProvider={dataProvider}
+    >
+      <Resource
+        name="users"
+        options={{ label: "Registration List" }}
+        list={StudentList}
+        show={UserList}
+      />
+      <Resource
+        name="posts"
+        options={{ label: "Evaluation List" }}
+        list={EvaluationList}
+        show={Users1List}
+      />
     </Admin>
-</div>
-  );
+  </div>
+);
 
 export default Main;
