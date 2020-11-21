@@ -8,6 +8,11 @@ import EvaluationList from './EvaluationList';
 import { Users1List } from './Evaluationdetails';
 import App from './App';
 import Profile from './Profile.js';
+
+import {
+  Link, HashRouter
+} from 'react-router-dom';
+
 const theme = createMuiTheme({
   overrides: {
     MuiButton: {
@@ -49,12 +54,15 @@ const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
 const Main = () => (
   <div>
-    
-     <Admin dashboard={Profile} logoutButton={App} theme={theme} dataProvider={dataProvider}> 
+    <HashRouter>
+      <Link to={`/users`}>Registration List</Link><br></br>
+      <Link to={`/posts`}>Evaluation List</Link>
+    </HashRouter>
+    <Admin dashboard={Profile} logoutButton={App} theme={theme} dataProvider={dataProvider}> 
   
-          <Resource name="users" options={{ label: 'Registration List' }} list={StudentList} show={UserList} />
-          <Resource name="users1" options={{ label: 'Evaluation List' }} list={EvaluationList} show={Users1List} />
-  
+      <Resource name="users" options={{ label: 'Registration List' }} list={StudentList} show={UserList}/>
+      <Resource name="posts" options={{ label: 'Evaluation List' }} list={EvaluationList} show={Users1List} />
+
     </Admin>
 </div>
   );

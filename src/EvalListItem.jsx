@@ -37,7 +37,7 @@ export default function EvalListItem({
       </span>
 
       <button className="students__item-btn">
-      <Link to={`/users1/${id}/show`}>View</Link>
+      <Link to={`/posts/${id}/show`}>View</Link>
       </button>
     </div>
   );

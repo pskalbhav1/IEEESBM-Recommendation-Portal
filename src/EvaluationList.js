@@ -29,7 +29,7 @@ export default function StudentList1() {
         );
 
         // CHECK THIS WONT WORK
-
+        
         return searchString.toLowerCase().includes(search.toLowerCase());
       })
     );
@@ -56,7 +56,7 @@ export default function StudentList1() {
             .slice((currentPage - 1) * 8, currentPage * 8)
             .map((kid, index) => {
               // return <StudentItem {...kid} key={index} />;
-              return <EvalListItem {...kid} />;
+              return <EvalListItem {...kid} key={index} />;
             })}
         </div>
         <div className="students__bottom">

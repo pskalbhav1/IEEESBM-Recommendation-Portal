@@ -3,7 +3,7 @@ import LoginForm from "./components/LoginForm";
 import Main from './Main';
 function App() {
   const adminUser = {
-    email: "dhruv@gmail.com",
+    email: "d@d",
     password: "123",
   };
   const [user, setUser] = useState({ name: "", email: "" });
@@ -28,6 +28,7 @@ function App() {
   const Logout = () => {
     setUser({ name: "", email: "" });
   };
+
   return (
     <div className="App">
       {/* <video src="/videos/video-2.mp4" autoPlay loop muted></video> */}
@@ -47,9 +48,9 @@ function App() {
           </h2>
           
         </div>
-      ) : (
-        <LoginForm Login={Login} error={error} />
-      )}
+       ) : ( 
+         <LoginForm Login={Login} error={error} /> 
+       )} 
     </div>
   );
 }

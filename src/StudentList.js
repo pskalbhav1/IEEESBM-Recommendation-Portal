@@ -27,7 +27,7 @@ export default function StudentList() {
         const searchString = Object.keys(kid).reduce(
           (total, current) => total + " " + kid[current]
         );
-
+        
         return searchString.toLowerCase().includes(search.toLowerCase());
       })
     );
